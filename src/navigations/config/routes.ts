@@ -1,0 +1,14 @@
+const APP_ROUTE = {
+  MAIN_TAB: 'MAIN_TAB',
+};
+
+const HOME_ROUTE = {
+  ROOT: 'HOME_ROOT',
+  HOME_USER_LIST: 'HOME_USER_LIST',
+};
+
+const TAB_NAVIGATION_ROOT = {
+  HOME_ROUTE,
+};
+
+export { APP_ROUTE, TAB_NAVIGATION_ROOT };
