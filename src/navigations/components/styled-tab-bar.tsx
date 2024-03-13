@@ -64,13 +64,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   tabIcon: {
-    width: 22,
-    height: 22,
+    width: 20,
+    height: 20,
     marginBottom: 1,
   },
   tabLabel: {
     textAlign: 'center',
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: '500',
   },
 });

@@ -1,10 +1,14 @@
+import CustomHeader from '../../components/custom-header';
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text } from 'react-native';
+import { SafeAreaView, View, StyleSheet, Text } from 'react-native';
 
 function HomeScreen() {
   return (
     <SafeAreaView style={styles.wrapper}>
-      <Text style={{ color: 'black' }}>HomeScreen</Text>
+      <CustomHeader title="Home" />
+      <View style={styles.container}>
+        <Text style={{ color: 'black' }}>Home Screen</Text>
+      </View>
     </SafeAreaView>
   );
 }
@@ -12,6 +16,11 @@ function HomeScreen() {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
+  },
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
   },
 });
 
