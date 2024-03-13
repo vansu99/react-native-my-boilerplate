@@ -4,11 +4,18 @@ const APP_ROUTE = {
 
 const HOME_ROUTE = {
   ROOT: 'HOME_ROOT',
+  HOME: 'HOME',
   HOME_USER_LIST: 'HOME_USER_LIST',
 };
 
-const TAB_NAVIGATION_ROOT = {
-  HOME_ROUTE,
+const ACCOUNT_ROUTE = {
+  ROOT: 'ACCOUNT_ROUTE',
 };
 
-export { APP_ROUTE, TAB_NAVIGATION_ROOT };
+// rendering bottom tabs
+const TAB_NAVIGATION_ROOT = {
+  HOME_ROUTE,
+  ACCOUNT_ROUTE,
+};
+
+export { APP_ROUTE, ACCOUNT_ROUTE, TAB_NAVIGATION_ROOT };
