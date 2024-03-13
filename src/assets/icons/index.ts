@@ -1,4 +1,9 @@
+import ic_back from './source/back.svg'
+import ic_home from './source/home.svg'
+import ic_person from './source/person.svg'
+
 export const icons = {
-  home: require('./source/home.png'),
-  person: require('./source/person.png')
-};
+  ic_home,
+  ic_person,
+  ic_back,
+}

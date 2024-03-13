@@ -5,5 +5,13 @@ module.exports = {
       plugins: ['transform-remove-console'],
     },
   },
-  plugins: ['react-native-reanimated/plugin'],
-}
+  plugins: [
+    'react-native-reanimated/plugin',
+    [
+      'babel-plugin-inline-import',
+      {
+        extensions: ['.svg'],
+      },
+    ],
+  ],
+};
