@@ -7,7 +7,6 @@ import navigationConfigs, { tabScreenOptions } from '../config/options';
 import { TAB_NAVIGATION_ROOT } from '../config/routes';
 import HomeScreen from '../../screens/home';
 import StyledTabBar from '../components/styled-tab-bar';
-import { icons } from '../../assets/icons';
 
 const MainStack = createStackNavigator();
 const MainTab = createBottomTabNavigator();
@@ -27,13 +26,13 @@ const MainTabContainer = () => {
       name: TAB_NAVIGATION_ROOT.HOME_ROUTE.ROOT,
       title: 'Home',
       component: HomeStack,
-      icon: icons.home,
+      icon: 'ic_home',
     },
     {
       name: TAB_NAVIGATION_ROOT.ACCOUNT_ROUTE.ROOT,
       title: 'Account',
       component: HomeStack,
-      icon: icons.person,
+      icon: 'ic_person',
     },
   ];
 

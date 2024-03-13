@@ -1,6 +1,6 @@
 import CustomTouchable from '../../components/custom-touchable';
 import React from 'react';
-import Image from 'react-native-fast-image';
+import CustomIcon from '../../components/custom-icon'
 import { Text, View, StyleSheet, Platform } from 'react-native';
 
 const StyledTabBar = ({ state, descriptors, navigation }: any) => {
@@ -37,11 +37,7 @@ const StyledTabBar = ({ state, descriptors, navigation }: any) => {
             onLongPress={onLongPress}
             key={route.key}
             customStyle={[styles.tabButton]}>
-            <Image
-              source={options?.icon}
-              resizeMode="contain"
-              style={[styles.tabIcon]}
-            />
+            <CustomIcon icon={options?.icon} size={22} />
             <Text style={styles.tabLabel}>{options?.title || ''}</Text>
           </CustomTouchable>
         );
