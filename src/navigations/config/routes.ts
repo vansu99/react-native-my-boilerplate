@@ -9,7 +9,8 @@ const HOME_ROUTE = {
 };
 
 const ACCOUNT_ROUTE = {
-  ROOT: 'ACCOUNT_ROUTE',
+  ROOT: 'ACCOUNT_ROOT',
+  ACCOUNT: 'ACCOUNT'
 };
 
 // rendering bottom tabs
