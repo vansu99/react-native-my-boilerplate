@@ -1,6 +1,6 @@
 export const FontDefault = {
-  robotoItalic: 'RobotoItalic',
-  robotoBold: 'RobotoBold',
-  robotoMedium: 'RobotoMedium',
-  robotoRegular: 'RobotoRegular',
+  robotoItalic: 'Roboto-Italic',
+  robotoBold: 'Roboto-Bold',
+  robotoMedium: 'Roboto-Medium',
+  robotoRegular: 'Roboto-Regular',
 } as const;

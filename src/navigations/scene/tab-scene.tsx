@@ -7,6 +7,7 @@ import navigationConfigs, { tabScreenOptions } from '../config/options';
 import { TAB_NAVIGATION_ROOT } from '../config/routes';
 import HomeScreen from '../../screens/home';
 import StyledTabBar from '../components/styled-tab-bar';
+import type { RootTabTypes } from '../../types/route';
 
 const MainStack = createStackNavigator();
 const MainTab = createBottomTabNavigator();
@@ -21,7 +22,7 @@ const HomeStack = () => (
 );
 
 const MainTabContainer = () => {
-  const tabList = [
+  const tabList: RootTabTypes[] = [
     {
       name: TAB_NAVIGATION_ROOT.HOME_ROUTE.ROOT,
       title: 'Home',

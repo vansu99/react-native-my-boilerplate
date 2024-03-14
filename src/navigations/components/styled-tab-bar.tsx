@@ -37,7 +37,7 @@ const StyledTabBar = ({ state, descriptors, navigation }: any) => {
             onLongPress={onLongPress}
             key={route.key}
             customStyle={[styles.tabButton]}>
-            <CustomIcon icon={options?.icon} size={22} />
+            <CustomIcon icon={options?.icon} size={22} color='#000' />
             <Text style={styles.tabLabel}>{options?.title || ''}</Text>
           </CustomTouchable>
         );
