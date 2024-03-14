@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import navigationConfigs, { tabScreenOptions } from '../config/options';
 import { TAB_NAVIGATION_ROOT } from '../config/routes';
 import HomeScreen from '../../screens/home';
+import AccountScreen from '../../screens/account';
 import StyledTabBar from '../components/styled-tab-bar';
 import type { RootTabTypes } from '../../types/route';
 
@@ -21,6 +22,15 @@ const HomeStack = () => (
   </MainStack.Navigator>
 );
 
+const AccountStack = () => (
+  <MainStack.Navigator screenOptions={navigationConfigs}>
+    <MainStack.Screen
+      name={TAB_NAVIGATION_ROOT.ACCOUNT_ROUTE.ACCOUNT}
+      component={AccountScreen}
+    />
+  </MainStack.Navigator>
+);
+
 const MainTabContainer = () => {
   const tabList: RootTabTypes[] = [
     {
@@ -32,7 +42,7 @@ const MainTabContainer = () => {
     {
       name: TAB_NAVIGATION_ROOT.ACCOUNT_ROUTE.ROOT,
       title: 'Account',
-      component: HomeStack,
+      component: AccountStack,
       icon: 'ic_person',
     },
   ];

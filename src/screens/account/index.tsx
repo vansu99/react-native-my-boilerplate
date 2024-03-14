@@ -1,13 +1,13 @@
 import CustomHeader from '../../components/custom-header';
 import React from 'react';
-import { SafeAreaView, View, StyleSheet, Text } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet } from 'react-native';
 
-function HomeScreen() {
+function AccountScreen() {
   return (
     <SafeAreaView style={styles.wrapper}>
-      <CustomHeader title="Home" isBack={false} />
+      <CustomHeader title="Account root" isBack={false} />
       <View style={styles.container}>
-        <Text style={{ color: 'black' }}>Home Screen</Text>
+        <Text style={{ color: 'black' }}>Account screen root</Text>
       </View>
     </SafeAreaView>
   );
@@ -24,4 +24,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default AccountScreen;
