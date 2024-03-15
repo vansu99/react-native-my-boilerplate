@@ -12,7 +12,10 @@ const navigationConfigs: StackNavigationOptions = {
   keyboardHandlingEnabled: Platform.OS === 'ios',
   cardOverlayEnabled: true,
   cardShadowEnabled: true,
-  cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+  cardStyleInterpolator: Platform.select({
+    ios: CardStyleInterpolators.forHorizontalIOS,
+    android: CardStyleInterpolators.forFadeFromBottomAndroid,
+  }),
   cardStyle: {
     backgroundColor: 'white',
   },
@@ -24,6 +27,7 @@ const navigationConfigs: StackNavigationOptions = {
 
 export const tabScreenOptions: BottomTabNavigationOptions = {
   headerShown: false,
+  tabBarShowLabel: false
 };
 
 export default navigationConfigs;

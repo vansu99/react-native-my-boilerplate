@@ -1,5 +1,5 @@
 import { lightColors } from './light';
 
-export const colors = {
+export const COLORS = {
   ...lightColors,
 };

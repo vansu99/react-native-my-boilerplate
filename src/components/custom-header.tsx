@@ -11,6 +11,7 @@ import {
 import CustomTouchable from './custom-touchable';
 import isEqual from 'react-fast-compare';
 import CustomIcon from './custom-icon';
+import { SPACINGS, COLORS } from '../themes';
 
 export interface CustomHeaderProps extends ViewProps {
   isBack?: boolean;
@@ -66,10 +67,10 @@ function CustomHeader({
 
 const styles = StyleSheet.create({
   container: {
-    height: 50,
-    backgroundColor: 'white',
     flexDirection: 'row',
     alignItems: 'center',
+    backgroundColor: COLORS.white,
+    height: SPACINGS.HEADER_HEIGHT,
   },
   inner: {
     flexDirection: 'row',
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: '600',
-    color: 'black',
+    color: COLORS.black,
     maxWidth: '80%',
   },
 });
