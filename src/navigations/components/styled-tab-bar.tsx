@@ -1,5 +1,5 @@
 import React from 'react';
-import { colors } from '../../themes'
+import { COLORS, SPACINGS } from '../../themes';
 import CustomTouchable from '../../components/custom-touchable';
 import CustomIcon from '../../components/custom-icon';
 import { Text, View, StyleSheet, Platform } from 'react-native';
@@ -38,7 +38,11 @@ const StyledTabBar = ({ state, descriptors, navigation }: any) => {
             onLongPress={onLongPress}
             key={route.key}
             customStyle={[styles.tabButton]}>
-            <CustomIcon icon={options?.icon} size={22} color={isFocused ? colors.primary : colors.black} />
+            <CustomIcon
+              icon={options?.icon}
+              size={22}
+              color={isFocused ? COLORS.primary : COLORS.black}
+            />
             <Text style={styles.tabLabel}>{options?.title || ''}</Text>
           </CustomTouchable>
         );
@@ -50,7 +54,7 @@ const StyledTabBar = ({ state, descriptors, navigation }: any) => {
 const styles = StyleSheet.create({
   tabContainer: {
     flexDirection: 'row',
-    height: '8%',
+    height: SPACINGS.TAB_HEIGHT,
     borderTopWidth: 1,
     borderTopColor: '#DEE2E6',
     justifyContent: 'space-around',

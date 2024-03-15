@@ -49,6 +49,7 @@ const MainTabContainer = () => {
 
   return (
     <MainTab.Navigator
+      initialRouteName={tabList[0].name}
       screenOptions={tabScreenOptions}
       tabBar={(props: BottomTabBarProps) => <StyledTabBar {...props} />}>
       {tabList.map((item, index) => (

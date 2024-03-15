@@ -1,4 +1,4 @@
-export const FontDefault = {
+export const FONTS = {
   robotoItalic: 'Roboto-Italic',
   robotoBold: 'Roboto-Bold',
   robotoMedium: 'Roboto-Medium',

@@ -17,4 +17,6 @@ $PROJECT_ROOT
     |__ themes       # Theme-related files
     |__ services     # Service layer for interacting with external services
     |__ apis         # API interaction layer
+    |__ services     # Config http request
+    |__ types        # Contains types in project
 ```
