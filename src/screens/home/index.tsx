@@ -1,17 +1,11 @@
-import { useDispatch, useSelector } from '../../redux/store';
-import CustomHeader from '../../components/custom-header';
+import { useDispatch, useSelector } from '@/redux/store';
+import CustomHeader from '@/components/custom-header';
 import React, { useCallback, useEffect } from 'react';
-import {
-  SafeAreaView,
-  View,
-  StyleSheet,
-  Text,
-  FlatList,
-  StatusBar,
-} from 'react-native';
-import { TODO_ACTIONS } from '../../constants/actions/todo';
-import type { TodoTypes } from '../../types/todo';
-import { COLORS, FONTS, SPACINGS } from '../../themes';
+import { SafeAreaView, View, StyleSheet, Text, FlatList } from 'react-native';
+import { TODO_ACTIONS } from '@/constants/actions/todo';
+import type { TodoTypes } from '@/types/todo';
+import { COLORS, FONTS, SPACINGS } from '@/themes';
+import HomeItem from './components/home-item';
 
 function HomeScreen() {
   const dispatch = useDispatch();
@@ -23,19 +17,7 @@ function HomeScreen() {
     });
   }, []);
 
-  const renderItem = useCallback(
-    (item: TodoTypes) => (
-      <View>
-        <Text style={[styles.text, { fontWeight: 'bold', marginBottom: 2 }]}>
-          {item.email}
-        </Text>
-        <Text numberOfLines={2} style={styles.text}>
-          {item.body}
-        </Text>
-      </View>
-    ),
-    [todos],
-  );
+  const renderItem = (item: TodoTypes) => <HomeItem item={item} />;
 
   const renderEmptyList = useCallback(
     () => (

@@ -13,5 +13,12 @@ module.exports = {
         extensions: ['.svg'],
       },
     ],
+    [
+      'module-resolver',
+      {
+        root: ['.'],
+        alias: { '^@/(.+)': './src/\\1' },
+      },
+    ],
   ],
 };

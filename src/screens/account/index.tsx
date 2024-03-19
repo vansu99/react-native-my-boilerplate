@@ -1,6 +1,6 @@
-import CustomHeader from '../../components/custom-header';
 import React from 'react';
-import { SafeAreaView, View, Text, StyleSheet } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import CustomHeader from '../../components/custom-header';
 
 function AccountScreen() {
   return (

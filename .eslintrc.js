@@ -1,6 +1,12 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: ['import', 'prettier'],
+  plugins: [
+    'import',
+    'react-native',
+    'prettier',
+    'unicorn',
+    '@typescript-eslint',
+  ],
   parserOptions: {
     sourceType: 'module',
   },
@@ -29,10 +35,21 @@ module.exports = {
       },
     },
   },
+  ignorePatterns: [
+    '**/*/*.js',
+    '*.js',
+    '*.svg',
+    '*.json',
+    '*.png',
+    'package.json',
+    'package-lock.json',
+  ],
   extends: [
     'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:unicorn/recommended',
     'plugin:@typescript-eslint/recommended',
-    '@react-native',
+    'prettier',
   ],
   rules: {
     'no-undef': 'off',
@@ -92,6 +109,15 @@ module.exports = {
     camelcase: 0,
     'prefer-destructuring': 2,
     'no-nested-ternary': 2,
+    'unicorn/better-regex': 2,
+    'unicorn/no-array-for-each': 2,
+    'unicorn/no-instanceof-array': 2,
+    'unicorn/no-new-array': 2,
+    'unicorn/prefer-includes': 2,
+    'unicorn/no-for-loop': 2,
+    'unicorn/numeric-separators-style': 2,
+    'unicorn/switch-case-braces': 2,
+    'unicorn/prefer-native-coercion-functions': 2,
   },
   env: {
     node: true,
