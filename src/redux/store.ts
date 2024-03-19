@@ -1,30 +1,27 @@
 import { configureStore } from '@reduxjs/toolkit';
-import {
-  persistStore,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from 'redux-persist';
+import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './sagas/rootSaga';
 import rootReducer from './slices/rootReducer';
-import {
-  TypedUseSelectorHook,
-  useDispatch as useAppDispatch,
-  useSelector as useAppSelector,
-} from 'react-redux';
+import { TypedUseSelectorHook, useDispatch as useAppDispatch, useSelector as useAppSelector } from 'react-redux';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppDispatch = typeof store.dispatch;
 
 const sagaMiddleware = createSagaMiddleware();
 
+const persistConfig = {
+  key: 'root',
+  storage: AsyncStorage,
+  blacklist: [],
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 const store = configureStore({
-  reducer: rootReducer,
-  middleware: getDefaultMiddleware =>
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       immutableCheck: false,
       serializableCheck: {
@@ -34,9 +31,9 @@ const store = configureStore({
   devTools: __DEV__,
 });
 
+const persistor = persistStore(store);
 sagaMiddleware.run(rootSaga);
 
-const persistor = persistStore(store);
 const { dispatch } = store;
 
 const useSelector: TypedUseSelectorHook<RootState> = useAppSelector;
