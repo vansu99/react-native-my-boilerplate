@@ -1,8 +1,8 @@
 import { THEMES } from './src/themes';
 import React, { Suspense } from 'react';
 import { Provider } from 'react-redux';
-import { store } from './src/redux/store';
-import { StyleSheet, StatusBar } from 'react-native';
+import { store, persistor } from './src/redux/store';
+import { StyleSheet, StatusBar, ActivityIndicator } from 'react-native';
 import NetworkState from './src/components/network-state';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -11,28 +11,39 @@ import { navigationRef } from './src/navigations/navigation-service';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import DropdownAlert from 'react-native-dropdownalert';
 import AlertHelper from './src/utils/alert';
+import { PersistGate } from 'redux-persist/integration/react';
+import { loadLocale } from '@/locales/i18next';
 
 function App() {
+  const onBeforeLift = () => {
+    loadLocale();
+  };
+
   return (
     <SafeAreaProvider>
       <StatusBar barStyle="dark-content" backgroundColor="transparent" />
       <Suspense fallback={null}>
         <GestureHandlerRootView style={styles.root}>
           <Provider store={store}>
-            <NetworkState />
-            <NavigationContainer
-              ref={navigationRef}
-              theme={{ ...DefaultTheme, colors: { ...DefaultTheme.colors } }}>
-              <Navigation />
-            </NavigationContainer>
-            <DropdownAlert
-              tapToCloseEnabled
-              useNativeDriver
-              ref={ref => AlertHelper.setDropDown(ref)}
-              onClose={() => AlertHelper.invokeOnClose()}
-              zIndex={THEMES.zIndexTopLevel}
-              containerStyle={styles.dropdownAlertContainer}
-            />
+            <PersistGate
+              loading={<ActivityIndicator />}
+              persistor={persistor}
+              onBeforeLift={onBeforeLift}>
+              <NetworkState />
+              <NavigationContainer
+                ref={navigationRef}
+                theme={{ ...DefaultTheme, colors: { ...DefaultTheme.colors } }}>
+                <Navigation />
+              </NavigationContainer>
+              <DropdownAlert
+                tapToCloseEnabled
+                useNativeDriver
+                ref={ref => AlertHelper.setDropDown(ref)}
+                onClose={() => AlertHelper.invokeOnClose()}
+                zIndex={THEMES.zIndexTopLevel}
+                containerStyle={styles.dropdownAlertContainer}
+              />
+            </PersistGate>
           </Provider>
         </GestureHandlerRootView>
       </Suspense>
