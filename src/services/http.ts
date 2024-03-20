@@ -7,7 +7,7 @@ class Http {
 
   constructor() {
     this.instance = axios.create({
-      baseURL: 'https://jsonplaceholder.typicode.com',
+      baseURL: API_CONFIG.URI,
       timeout: API_CONFIG.TIME_OUT,
       headers: {
         'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ class Http {
     );
 
     this.instance.interceptors.response.use(
-      response => response,
+      response => response.data,
       error => {
         return Promise.reject(error);
       },

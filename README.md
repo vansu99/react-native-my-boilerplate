@@ -14,6 +14,7 @@ $PROJECT_ROOT
     |__ hooks        # Custom hooks
     |__ assets       # Image and font files
     |__ redux        # State management
+    |__ locales      # Multiple languages
     |__ themes       # Theme-related files
     |__ services     # Service layer for interacting with external services
     |__ apis         # API interaction layer
