@@ -1,13 +1,6 @@
 import React, { memo } from 'react';
 import { goBack } from '../navigations/navigation-service';
-import {
-  View,
-  StyleSheet,
-  StyleProp,
-  ViewProps,
-  ViewStyle,
-  Text,
-} from 'react-native';
+import { View, StyleSheet, StyleProp, ViewProps, ViewStyle, Text } from 'react-native';
 import CustomTouchable from './custom-touchable';
 import isEqual from 'react-fast-compare';
 import CustomIcon from './custom-icon';
@@ -44,19 +37,29 @@ function CustomHeader({
     <View style={[styles.container, customStyle, isShadow && styles.shadow]}>
       <View style={styles.inner}>
         {isBack ? (
-          <CustomTouchable onPress={onBack} customStyle={styles.btnBack}>
-            <CustomIcon icon="ic_back" size={21} />
+          <CustomTouchable
+            onPress={onBack}
+            customStyle={styles.btnBack}
+          >
+            <CustomIcon
+              icon="ic_back"
+              size={21}
+            />
           </CustomTouchable>
         ) : (
           <View style={styles.btnBack} />
         )}
-        <Text numberOfLines={1} style={styles.title}>
+        <Text
+          numberOfLines={1}
+          style={styles.title}
+        >
           {title || ''}
         </Text>
         {iconAction ? (
           <CustomTouchable
             onPress={onPressAction}
-            customStyle={styles.btnAction}></CustomTouchable>
+            customStyle={styles.btnAction}
+          ></CustomTouchable>
         ) : (
           <View style={styles.btnAction} />
         )}

@@ -13,7 +13,7 @@ module.exports = {
   "vueIndentScriptAndStyle": false,
   "proseWrap": "preserve",
   "insertPragma": false,
-  "printWidth": 120,
+  "printWidth": 100,
   "requirePragma": false,
   "tabWidth": 2,
   "useTabs": false,
